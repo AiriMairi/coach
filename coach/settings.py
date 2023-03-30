@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'user',
     'subscription',
     'products',
+    'events',
+    'coaching'
 ]
 
 MIDDLEWARE = [
