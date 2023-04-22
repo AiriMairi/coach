@@ -1,0 +1,36 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="register">
+        <div class="title">
+            <p>Регистрация</p>
+        </div>
+        <div class="form">
+            <label for="{{ form.email.id_for_label }}">
+                {{ form.email }}
+            </label>
+        </div>
+        <div class="form">
+            <label for="{{ form.number_phone.id_for_label }}">
+                {{ form.number_phone }}
+            </label>
+        </div>
+        <div class="form">
+            <label for="{{ form.username.id_for_label }}">
+                {{ form.username }}
+            </label>
+        </div>
+        <div class="form">
+            <label for="{{ form.password1.id_for_label }}">
+                {{ form.password1 }}
+            </label>
+        </div>
+        <div class="form">
+            <label for="{{ form.password2.id_for_label }}">
+                {{ form.password2 }}
+            </label>
+        </div>
+    </div>
+</body>
+{% endblock %}
