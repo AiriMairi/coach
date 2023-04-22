@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from rest_framework import generics, serializers
+from rest_framework.permissions import IsAuthenticated
 
 
 class User(AbstractUser):
@@ -16,3 +18,21 @@ class UserInfo(models.Model):
     class Meta:
         verbose_name_plural = 'Информация о пользователях'
         verbose_name = 'Информация о пользователе'
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
+
+
+class UserListAPIView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class UserDetailAPIView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
